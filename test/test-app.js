@@ -11,18 +11,21 @@ describe('costjabrify:app', function () {
     helpers.run(path.join(__dirname, '../app'))
       .inDir(path.join(os.tmpdir(), './temp-test'))
       .withOptions({ 'skip-install': true })
-      .withPrompt({
-        someOption: true
-      })
       .on('end', done);
   });
 
   it('creates files', function () {
     assert.file([
+      '.editorconfig',
+      '.gitignore',
       'bower.json',
       'package.json',
-      '.editorconfig',
-      '.jshintrc'
+      'gulpfile.coffee',
+      'server.coffee',
+      'app/images/logo.svg',
+      'app/scripts/main.coffee',
+      'app/styles/main.styl',
+      'app/views/index.jade'
     ]);
   });
 });
