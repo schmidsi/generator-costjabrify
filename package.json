@@ -1,0 +1,43 @@
+{
+  "name": "generator-costjabrify",
+  "version": "0.0.1",
+  "description": "Yeoman CoStJaBrIfy generator",
+  "license": "MIT",
+  "main": "app/index.js",
+  "repository": "schmidsi/generator-costjabrify",
+  "author": {
+    "name": "Simon Schmid",
+    "email": "simon@schmidsi.ch",
+    "url": "https://github.com/schmidsi"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "app"
+  ],
+  "keywords": [
+    "yeoman-generator",
+    "coffeescript",
+    "stylus",
+    "jade",
+    "browserify",
+    "browsersync",
+    "express.js",
+    "gulp"
+  ],
+  "dependencies": {
+    "yeoman-generator": "^0.17.0",
+    "chalk": "^0.5.0",
+    "yosay": "^0.3.0"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  },
+  "peerDependencies": {
+    "yo": ">=1.0.0"
+  }
+}
