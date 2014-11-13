@@ -11,7 +11,7 @@ CoStJaBrIfy stands for:
 - BrowserSync
 - Browserify
 
-And its my preferred frontend stack at this time and it's probably soon yours too. This whole Repo is a [Yeoman](http://yeoman.io) Generator. If you don't know, what Yeoman is, you probably want to check it out first: [Yeoman Getting Started Guide](https://github.com/yeoman/yeoman/wiki/Getting-Started.
+And its my preferred frontend stack at this time and it's probably soon yours too. This whole Repo is a [Yeoman](http://yeoman.io) Generator. If you don't know, what Yeoman is, you probably want to check it out first: [Yeoman Getting Started Guide](https://github.com/yeoman/yeoman/wiki/Getting-Started.)
 
 
 ## Quickstart
@@ -28,7 +28,7 @@ After that, invite CoStJaBrIfy to the party:
 npm install -g generator-costjabrify
 ```
 
-Now, you can generate awesome frontends stubs in seconds:
+Now, you can generate awesome frontend-stubs in seconds:
 
 ```bash
 yo costjabrify
