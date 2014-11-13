@@ -17,7 +17,7 @@ paths =
     jade:   ['./app/views/**/*.jade']
     stylus:
         watch:      ['./app/styles/**/*.styl']
-        compile:    ['./app/styles/base.styl']
+        compile:    ['./app/styles/main.styl']
     coffee:
         path:       './app/scripts/**/*.coffee'
         main:       './app/scripts/main.coffee'

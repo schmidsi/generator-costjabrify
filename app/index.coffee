@@ -12,16 +12,18 @@ CostjabrifyGenerator = yeoman.generators.Base.extend
 
     # Have Yeoman greet the user.
     @log yosay("Welcome to the supreme Costjabrify generator!")
+
     prompts = [
       type: "confirm"
       name: "someOption"
-      message: "Would you like to enable this option?"
+      message: "Are you ready?"
       default: true
     ]
+
     @prompt prompts, ((props) ->
       @someOption = props.someOption
       done()
-      return
+
     ).bind(this)
 
   writing:
