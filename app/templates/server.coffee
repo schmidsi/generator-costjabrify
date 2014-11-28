@@ -7,9 +7,14 @@ app = express()
 app.set 'port', PORT
 
 app.use(express.static(__dirname + '/dist'));
+app.set 'view engine', 'jade'
+app.set 'views', __dirname + '/frontend/templates'
 
-if app.settings.env == 'development'
-    app.use(express.static(__dirname + '/app'));
+# Until the image optimisation process isn't implemented, hack it like this:
+app.use '/img', express.static(__dirname + '/frontend/images')
+
+app.get '/', (req, res) ->
+    return res.render('index')
 
 if not module.parent
     app.listen app.get('port')

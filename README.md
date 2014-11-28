@@ -34,6 +34,9 @@ Now, you can generate awesome frontend-stubs in seconds:
 yo costjabrify
 ```
 
+## Features / Philosophy
+- Can be used for frontend only, but is also ready to be integrated within a express app
+
 ## TODO
 - [ ] Stylus modules
 - [ ] Build Task

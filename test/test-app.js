@@ -22,10 +22,10 @@ describe('costjabrify:app', function () {
       'package.json',
       'gulpfile.coffee',
       'server.coffee',
-      'app/images/logo.svg',
-      'app/scripts/main.coffee',
-      'app/styles/main.styl',
-      'app/views/index.jade'
+      'frontend/images/logo.svg',
+      'frontend/scripts/main.coffee',
+      'frontend/styles/main.styl',
+      'frontend/templates/index.jade'
     ]);
   });
 });

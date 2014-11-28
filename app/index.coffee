@@ -4,49 +4,54 @@ yeoman = require("yeoman-generator")
 yosay = require("yosay")
 
 CostjabrifyGenerator = yeoman.generators.Base.extend
-  initializing: ->
-    @pkg = require("../package.json")
+    initializing: ->
+        @pkg = require("../package.json")
 
-  prompting: ->
-    done = @async()
+    prompting: ->
+        done = @async()
 
-    # Have Yeoman greet the user.
-    @log yosay("Welcome to the supreme Costjabrify generator!")
+        # Have Yeoman greet the user.
+        @log yosay("Welcome to the supreme Costjabrify generator!")
 
-    prompts = [
-      type: "confirm"
-      name: "someOption"
-      message: "Are you ready?"
-      default: true
-    ]
+        prompts = [
+            type: "input"
+            name: "frontendDir"
+            message: "Directory to hold the frontend code?
+                Generator webapp uses 'app', we use 'fronted'"
+            default: 'frontend'
+        ]
 
-    @prompt prompts, ((props) ->
-      @someOption = props.someOption
-      done()
+        # @prompt prompts, (answers) =>
+        #     @frontendDir = answers.frontendDir
+        #     done()
+        @frontendDir = 'frontend'
+        done()
 
-    ).bind(this)
 
-  writing:
-    app: ->
-      @dest.mkdir "app"
-      @dest.mkdir "app/views"
-      @dest.mkdir "app/images"
-      @dest.mkdir "app/scripts"
-      @dest.mkdir "app/styles"
-      @src.copy "logo.svg", "app/images/logo.svg"
-      @src.copy "main.coffee", "app/scripts/main.coffee"
-      @src.copy "main.styl", "app/styles/main.styl"
-      @src.copy "index.jade", "app/views/index.jade"
+    writing:
+        frontend: ->
+            @dest.mkdir @frontendDir
+            @dest.mkdir @frontendDir + "/templates"
+            @dest.mkdir @frontendDir + "/images"
+            @dest.mkdir @frontendDir + "/scripts"
+            @dest.mkdir @frontendDir + "/styles"
+            @src.copy "logo.svg", @frontendDir + "/images/logo.svg"
+            @src.copy "main.coffee", @frontendDir + "/scripts/main.coffee"
+            @src.copy "main.styl", @frontendDir + "/styles/main.styl"
+            @src.copy "index.jade", @frontendDir + "/templates/index.jade"
 
-    projectfiles: ->
-      @src.copy "editorconfig", ".editorconfig"
-      @src.copy "gitignore", ".gitignore"
-      @src.copy "_package.json", "package.json"
-      @src.copy "_bower.json", "bower.json"
-      @src.copy "gulpfile.coffee", "gulpfile.coffee"
-      @src.copy "server.coffee", "server.coffee"
+        projectfiles: ->
+            @src.copy "editorconfig", ".editorconfig"
+            @src.copy "gitignore", ".gitignore"
+            @src.copy "_package.json", "package.json"
+            @src.copy "_bower.json", "bower.json"
+            @src.copy "server.coffee", "server.coffee"
 
-  end: ->
-    @installDependencies()
+            # TODO: make templating work
+            @src.copy "gulpfile.coffee", "gulpfile.coffee"
+            #@template "gulpfile.coffee", "gulpfile.coffee"
+
+    end: ->
+        @installDependencies()
 
 module.exports = CostjabrifyGenerator

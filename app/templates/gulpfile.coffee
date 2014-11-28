@@ -1,3 +1,5 @@
+# generated on <%= (new Date).toISOString().split('T')[0] %> using <%= pkg.name %> <%= pkg.version %>
+
 browserSync = require 'browser-sync'
 browserify  = require 'browserify'
 gulp        = require 'gulp'
@@ -14,20 +16,20 @@ stylus      = require 'gulp-stylus'
 delay = (ms, func) -> setTimeout func, ms
 
 paths =
-    jade:   ['./app/views/**/*.jade']
+    jade:   ['./frontend/templates/**/*.jade'] # <%= frontendDir %>
     stylus:
-        watch:      ['./app/styles/**/*.styl']
-        compile:    ['./app/styles/main.styl']
+        watch:      ['./frontend/styles/**/*.styl']
+        compile:    ['./frontend/styles/main.styl']
     coffee:
-        path:       './app/scripts/**/*.coffee'
-        main:       './app/scripts/main.coffee'
+        path:       './frontend/scripts/**/*.coffee'
+        main:       './frontend/scripts/main.coffee'
     dist:
         html:       './dist'
         js:         './dist/js/'
         css:        './dist/css/'
 
 
-gulp.task 'brower-sync', ['browserify', 'jade'], ->
+gulp.task 'brower-sync', ['browserify'], ->
     browserSync.init
         proxy    : 'http://localhost:3000'
         port     : 8000
@@ -39,7 +41,7 @@ gulp.task 'brower-sync', ['browserify', 'jade'], ->
             scroll   : false
 
 
-gulp.task 'browser-reload', ['browserify', 'jade'], ->
+gulp.task 'browser-reload', ['browserify'], ->
     browserSync.reload()
 
 
@@ -107,8 +109,8 @@ gulp.task 'jade', ->
         .pipe gulp.dest paths.dist.html
 
 
-gulp.task 'default', ['nodemon', 'brower-sync', 'stylus', 'browserify', 'jade'], ->
-    gulp.watch paths.jade, ['jade', 'browser-reload']
+gulp.task 'default', ['nodemon', 'brower-sync', 'stylus', 'browserify'], ->
+    gulp.watch paths.jade, ['browser-reload']
     gulp.watch paths.stylus.watch, ['stylus']
     gulp.watch paths.coffee.path, ['browserify', 'browser-reload']
 

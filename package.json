@@ -1,6 +1,6 @@
 {
   "name": "generator-costjabrify",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Yeoman CoStJaBrIfy generator",
   "license": "MIT",
   "main": "app/index.js",
